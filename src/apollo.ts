@@ -1,7 +1,14 @@
-import ApolloClient from "apollo-boost";
+import ApolloClient, { Operation } from 'apollo-boost'
 
 const client = new ApolloClient({
-  uri: "http://localhost:4000/graphql",
-});
+	request: async (operation: Operation) => {
+		operation.setContext({
+			header: {
+				'X-JWT': localStorage.getItem('jwt') || '',
+			},
+		})
+	},
+	uri: 'http://localhost:4000/graphql',
+})
 
-export default client;
+export default client
