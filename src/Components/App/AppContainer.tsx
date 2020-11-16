@@ -1,11 +1,12 @@
 import React from 'react'
 import { graphql } from 'react-apollo'
 
+import AppPresenter from './AppPresenter'
 import { IS_LOGGED_IN } from './AppQueries'
 
 const AppContainer: React.FC<any> = ({ data }) => {
     return (
-        <div>{JSON.stringify(data)}</div>
+        <AppPresenter isLoggedIn={data.auth.isLoggedIn} />
     )
 }
 
