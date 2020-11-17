@@ -1,4 +1,3 @@
-import PropTypes from "prop-types";
 import React from "react";
 
 interface IProps {
@@ -7,9 +6,5 @@ interface IProps {
 
 const AppPresenter: React.FC<IProps> = ({ isLoggedIn }) =>
     isLoggedIn ? <span>you are in</span> : <span>your are out</span>;
-
-AppPresenter.propTypes = {
-    isLoggedIn: PropTypes.bool.isRequired
-};
 
 export default AppPresenter;
